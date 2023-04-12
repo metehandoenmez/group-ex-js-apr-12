@@ -10,3 +10,40 @@ function isPrime(num) {
     if (num % i == 0 || num % (i + 2) == 0) return false;
   return true;
 }
+
+function doubleArr(arr) {
+  return arr.map((el => el*2));
+}
+
+console.log(doubleArr(data));
+
+function sortPrimes(arr) {
+  return arr.filter(isPrime).sort((a,b) => a - b);
+}
+
+console.log(sortPrimes(data));
+
+function convertArr(arr) {
+  let convertedArr = [];
+  for (let i = 0; i < arr.length; i++) {
+      newElement = {
+      number: arr[i],
+      isPrime: isPrime(arr[i])
+    };
+    convertedArr.push(newElement);
+  }
+  return convertedArr;
+}
+
+console.log(convertArr(data));
+
+console.log(convertArr(sortPrimes(data)));
+
+function getHighest(arr) {
+  return arr[arr.length-1];
+}
+
+console.log(getHighest(convertArr(sortPrimes(data))));
+
+console.log(getHighest(convertArr(sortPrimes(data))).number);
+
